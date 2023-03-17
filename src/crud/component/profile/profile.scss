@@ -1,0 +1,286 @@
+
+  .profile {
+    display: flex;
+  }
+
+  .profileConatiner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f2f7f8;
+
+  }
+
+  .quill-textarea {
+    margin-bottom: 30px;
+  }
+
+   .quill {
+    position: relative;
+    width: 100%;
+    background-color: #f9f9f9;
+ 
+    padding-bottom: 0px;
+    font-weight: 400;
+    outline: none;
+    overflow: none;
+   
+  }
+
+  .quill:hover {
+    border: 1px solid #00bbf9;
+  }
+
+
+
+  form {
+    width: 100%;
+  }
+
+  .profile-male {
+    margin-top: 30px;
+    display: flex;
+  }
+
+  .male {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  .male label {
+    font-size: 17px;
+    font-weight: 600;
+    color: #888;
+    margin-right: 10px;
+  }
+
+  .male input {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .profile-second {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .profile-inner {
+    width: 70%;
+  }
+
+  .profile-inner-second {
+    width: 100%;
+  }
+
+  .profile-inner-second .profile-img {
+    width: 100px;
+    padding: 40px 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-bottom: 30px;
+  }
+
+  .profile-img p {
+    font-size: 17px;
+    font-weight: 600;
+    color: #888;
+  }
+
+  .button  {
+    margin-top: 30px;
+  }
+
+  .send-but {
+    padding: 10px 25px;
+    font-size: 15px;
+    margin-right: 50px;
+    background-color: #6c7af4;
+    color: #fff;
+    outline: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .send-but:hover {
+    background-color: #2ca9fc;
+  }
+
+  .update {
+    padding: 10px 25px;
+    font-size: 15px;
+    margin-right: 50px;
+    background-color: #04AA6D;
+    color: #fff;
+    outline: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .update:hover {
+    background-color: #45a049;
+  }
+
+
+  
+
+  .input-data{
+    height: 40px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+  
+  }
+  
+   .input-data input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    color: #808191;
+    
+    outline: none;
+    font-size: 17px;
+    border-bottom: 2px solid silver;
+  }
+  
+  .input-data input:focus ~ label,
+  .input-data input:valid ~ label{
+    transform: translateY(-30px);
+    font-size: 15px;
+    color: #00bbf9;
+  }
+  
+  .input-data label{
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    color: grey;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  .input-data .underline{
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    width: 100%;
+  }
+  
+  .input-data .underline:before{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: #00bbf9;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .input-data input:focus ~ .underline:before,
+  .input-data input:valid ~ .underline:before{
+    transform: scaleX(1);
+  }
+
+  .app_mains {
+    display: flex;
+    
+  }
+
+  .app_left {
+    width: 50px ;
+    height: 100vh;
+    transition: all 0.5s ease;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .app_left_second {
+    width: 180px;
+    height: 100vh;
+    transition: all 0.5s ease;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+  }
+
+  .app_right_second {
+    width: 89%;
+    margin-left: 20px;
+    
+  }
+
+  .top_section{
+    display: flex;
+    align-items:center;
+    padding:20px 15px;
+    
+}
+.logo{
+    font-size: 20px;
+    color: #808191;
+}
+
+
+.icon {
+  color: #808191;
+  cursor: pointer;
+}
+.link{
+    display: flex;
+    color: #808191;
+    padding: 10px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+    margin-bottom: 20px;
+}
+.link:hover{
+    background:#147dfd;
+    color: white;
+    transition: all 0.5s;
+}
+.active{
+    background: #f2f7f8;
+    color: #147dfd;
+}
+.icon, .link_text{
+    font-size: 18px;
+}
+
+
+  @media screen and (max-width: 380px) {
+    .profileConatiner {
+      width: 100%;
+    }
+
+    .main_top_section {
+      display: none;
+    }
+
+    .app_mains {
+      width: 100%;
+    }
+
+    .app_left {
+      background-color: transparent;
+    }
+
+    .link:hover{
+      background:#f2f7f8;
+      color: #808191;
+      transition: all 0.5s;
+  }
+
+  .app_right_second {
+    width: 81%;
+  }
+
+
+  }

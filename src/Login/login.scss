@@ -1,0 +1,285 @@
+
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .login-form,
+  .signup-form {
+    max-width: 350px;
+    margin: auto;
+  }
+  
+  .card {
+    background-color: #f9f9f9;
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  }
+
+  .header {
+    display: flex;
+    justify-content: center;
+  }
+
+  h4 {
+    font-size: 40px;
+    color: #97d5fe;
+  }
+
+  .login-inner {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+    padding: 30px;
+    width: 30%;
+    border-radius: 7px;
+  }
+
+  .profile-male {
+    margin-top: 30px;
+    display: flex;
+  }
+
+  .male {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  .male label {
+    font-size: 17px;
+    font-weight: 600;
+    color: #888;
+    margin-right: 10px;
+  }
+
+  .male input {
+    cursor: pointer;
+  }
+
+  .form-group button {
+    margin-top: 40px;
+  }
+
+  .button  {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .login-but {
+    width: 80%;
+    padding: 10px 0px;
+    font-size: 15px;
+
+    background-color: #97d5fe;
+    color: #fff;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .login-but:hover {
+    background-color: #2ea8f9;
+  }
+
+  .create {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .create button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: 500;
+    color: #97d5fe;
+    cursor: pointer;
+  }
+
+  .create button:hover {
+    color: #2ea8f9;
+  }
+
+.full-page{
+    height: 100%;
+    width: 100%;
+    background: url("https://www.paperstreet.com/blog/wp-content/uploads/2016/04/iStock_000080733521_Double-1024x683-1.webp") no-repeat center;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 30px;
+    padding-top: 50px;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul{
+    display: inline-block;
+    list-style: none;
+}
+
+
+
+
+#login-form{
+    display: block;
+}
+
+.login-page{
+  height: 100%;
+  width: 100%;
+  background: url("https://www.paperstreet.com/blog/wp-content/uploads/2016/04/iStock_000080733521_Double-1024x683-1.webp") no-repeat center;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+}
+
+.form-box {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  
+  justify-content: center;
+}
+.form-inner {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttom-box{
+    width: 30%;
+    margin: 0px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+.toggle-btn{
+    padding: 10px 30px;
+    width: 100px;
+    cursor: pointer;
+    background: transparent;
+    background: #F3C693;
+    margin: 0 auto;
+    border: 0;
+    outline: none;
+    
+}
+
+#btn{
+
+    width: 110px;
+    height: 100%;
+    background: #F3C693;
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.input-group-login{
+    background-color: transparent;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 50px 30px;
+    width: 380px;
+
+    transition: .5s;
+}
+
+.input-group-register{
+    top: 120px;
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
+}
+
+.input-field:focus {
+  background-color: transparent;
+}
+
+.input-field{
+    width: 100%;
+    padding: 10px 0;
+    opacity: 1;
+    margin: 5px 0;
+    border-left: 0;
+    background-color: transparent !important;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    margin-bottom: 20px;
+    background: transparent;
+}
+
+.form-box h3 {
+  color: #fff;
+}
+
+input {
+  background-color: transparent;
+}
+
+.submit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    background: #333333;
+    color: #fff;
+    margin: 0 auto;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+.check-box{
+    margin: 30px 10px 34px 0;
+}
+
+#login{
+    left: 50px;
+}
+
+#login input{
+    color: white;
+    font-size: 15px;
+}
+
+.search {
+  border: 1px solid #ccc;
+}

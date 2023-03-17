@@ -1,0 +1,60 @@
+
+table {
+    width: 100%;
+    font-size: 13px;
+    color: #444;
+    white-space: nowrap;
+
+    border-collapse: collapse;
+}
+
+th {
+    flex-wrap: wrap;
+}
+
+tr td {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+
+    .post-thead-inner {
+        width: 100%;
+        
+
+    }
+
+    thead {
+        width: 100%;
+    }
+
+    .port-img {
+
+    }
+
+    .post-name {
+        width: 400px;
+    }
+
+    .port-img {
+        width: 100px;
+    }
+
+    .post-category {
+        width: 150px;
+    }
+
+    .post-date {
+        width: 100px;
+    }
+
+    .post-action {
+        width: 100px;
+    }
+
+    
+  }

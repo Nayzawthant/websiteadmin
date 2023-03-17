@@ -1,0 +1,75 @@
+
+
+
+
+.user-img {
+    width: 20%;
+    margin-left: 10px;
+    text-align: left;
+    word-break: break-all;
+}
+
+.user-inner-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.user-inner-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.create-but {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.create-but input {
+    border: none;
+}
+
+.create-but h4 {
+    margin-bottom: 10px;
+}
+
+.create-but button {
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    background-color: #009efb;
+    font-size: 15px;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.create-but button:hover {
+    background-color: #1433fd;
+}
+
+@media screen and (max-width: 380px) {
+    .user-header-image {
+        width: 100px;
+    }
+
+    .user-header-name {
+        width: 150px;
+    }
+
+    .user-header-email {
+        width: 200px;
+    }
+
+    .user-header-action {
+        width: 100px;
+    }
+
+    .create-but input {
+        width: 50%;
+    }
+}
