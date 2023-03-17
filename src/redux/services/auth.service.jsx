@@ -1,9 +1,10 @@
 import axios from "axios";
+import { API_URL } from "../../config/constant";
 
-const API_URL = "http://localhost:5000/v1/auth/";
+const API_URLS = API_URL + "v1/auth/";
 
 const register = (name, email, password) => {
-    return axios.post(API_URL + "register", {
+    return axios.post(API_URLS + "register", {
         name,
         email,
         password
@@ -11,7 +12,7 @@ const register = (name, email, password) => {
 };
 
 const login = (email, password) => {
-    return axios.post(API_URL + 'login', {
+    return axios.post(API_URLS + 'login', {
         email,
         password,
     })
