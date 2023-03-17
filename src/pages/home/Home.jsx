@@ -7,6 +7,7 @@ import CategoryIcon from '@mui/icons-material/Category';
 import { useEffect, useState } from "react";
 import { axiosAuth, axiosAuthUpload } from "../../config/axios";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import { API_URL } from "../../config/constant";
 
 const Home = () => {
   const [userAll, setUserAll] = useState('');
@@ -15,24 +16,24 @@ const Home = () => {
   const [categoryAll, setCategoryAll] = useState('');
 
   const loadCategory = async () => {
-    const resultCategory = await (await axiosAuth().get('http://localhost:5000/v1/categories')).data;
+    const resultCategory = await (await axiosAuth().get(API_URL + 'v1/categories')).data;
     setCategoryAll(resultCategory);
 
   };
 
   const loadComment = async () => {
-    const resultComment = await (await axiosAuth().get('http://localhost:5000/v1/comments')).data;
+    const resultComment = await (await axiosAuth().get(API_URL + 'v1/comments')).data;
     setComment(resultComment);
 
   };
 
   const loadUser = async () => {
-    const resultUser = await (await axiosAuthUpload().get('http://localhost:5000/v1/users')).data;
+    const resultUser = await (await axiosAuthUpload().get(API_URL + 'v1/users')).data;
     setUserAll(resultUser);
   };
 
   const loadPost = async () => {
-    const resultPost = await (await axiosAuthUpload().get('http://localhost:5000/v1/posts')).data;
+    const resultPost = await (await axiosAuthUpload().get(API_URL + 'v1/posts')).data;
     setPostAll(resultPost);
   };
 

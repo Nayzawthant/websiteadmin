@@ -77,7 +77,7 @@ const PostCreate = () => {
       }
       const result = await (await axiosAuthUpload().post(API_URL + 'v1/posts', newPost)).data;
       console.log(result);
-      navigate('/posts')
+      navigate('/posts');
     } catch (error) {
       console.log(error)
       setLoading(false)
