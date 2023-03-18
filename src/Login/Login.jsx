@@ -46,7 +46,7 @@ const Login = () => {
             <input type='text' class='input-field' placeholder="Enter Email" onChange={e => setEmail(e.target.value)} />
             <input type='password' class='input-field' placeholder='Enter Password' onChange={e => setPassword(e.target.value)} />
             {
-              isLoading? <button class='submit-btn'><div className="set-loading-img" ><img src={imgLoad} alt=""  /></div></button> :
+              isLoading? <button class='submit-btn'><img src={imgLoad} alt=""  /></button> :
               <button type='submit' class='submit-btn'>Login</button>
             }
             {message && (

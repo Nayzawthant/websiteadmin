@@ -28,7 +28,7 @@ const PostTable = () => {
     const resultPost = await (await axiosAuth().get(API_URL + param)).data
     setPage(resultPost?.page)
     setPost(resultPost);
-    setImgLoading(false)
+    setImgLoading(true)
   }
 
   console.log(post)
