@@ -6,6 +6,7 @@ import '../category/category.scss'
 import { useState } from 'react'
 import { axiosAuth } from '../../config/axios'
 import img from '../../../public/1488.gif'
+import { API_URL } from '../../config/constant'
 
 const CreateCategory = () => {
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ const CreateCategory = () => {
       e.preventDefault();
       setLoading(true)
       try {
-        const result = await axiosAuth().post('http://localhost:5000/v1/categories', cate, {});
+        const result = await axiosAuth().post(API_URL + 'v1/categories', cate, {});
         console.log(result);
         navigate('/categories');
       } catch (error) {

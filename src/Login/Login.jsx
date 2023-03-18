@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import "bootstrap/dist/css/bootstrap.min.css";
+import imgLoad from '../../../public/1488.gif'
 import * as Yup from "yup";
 import './login.scss'
 import { login } from "../redux/slices/authSlice";
@@ -13,11 +14,13 @@ const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { isLoading } = useSelector((state => state.auth))
   const { isLoggedIn } = useSelector((state) => state.auth);
   const { message } = useSelector((state) => state.message);
 
   const handleLogin = (e) => {
     e.preventDefault();
+    
     const formData = new FormData();
     formData.append('email', email);
     formData.append('password', password);
@@ -42,7 +45,10 @@ const Login = () => {
             <h3>Login</h3>
             <input type='text' class='input-field' placeholder="Enter Email" onChange={e => setEmail(e.target.value)} />
             <input type='password' class='input-field' placeholder='Enter Password' onChange={e => setPassword(e.target.value)} />
-            <button type='submit' class='submit-btn' disabled={isLoggedIn}>Login</button>
+            {
+              isLoading? <button class='submit-btn'><div className="set-loading-img" ><img src={imgLoad} alt=""  /></div></button> :
+              <button type='submit' class='submit-btn'>Login</button>
+            }
             {message && (
               <div className="form-group">
                 <div style={{ color: 'red', marginTop: '10px' }}>

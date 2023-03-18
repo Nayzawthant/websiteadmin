@@ -8,15 +8,18 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { format } from 'timeago.js';
+import imgLoad from '../../../public/1488.gif'
 
 const PostTable = () => {
   const navigate = useNavigate();
   const [post, setPost] = useState([]);
   const [page, setPage] = useState(1);
+  const [imgLoading, setImgLoading] = useState(false);
   const [querry, setQuerry] = useState('');
   const [search, setSearch] = useState(false)
 
   const getPosts = async () => {
+    setImgLoading(true);
     let param = `v1/posts?sortBy=_id:desc&page=${page}&limit=8`
 
     if (querry) {
@@ -25,6 +28,7 @@ const PostTable = () => {
     const resultPost = await (await axiosAuth().get(API_URL + param)).data
     setPage(resultPost?.page)
     setPost(resultPost);
+    setImgLoading(false)
   }
 
   console.log(post)
@@ -57,48 +61,56 @@ const PostTable = () => {
     <div className='main_post'>
       <div className='create-but'><h4>Posts</h4></div>
       <div className="create-but">
-      <input type="text" name="search" placeholder="Search title..." value={querry} onChange={searchInput} />
+        <input type="text" name="search" placeholder="Search title..." value={querry} onChange={searchInput} />
 
         <div class="overlay hidden"></div>
         <button onClick={() => navigate('create-posts')}>Add Post</button>
       </div>
       <div className='thead'>
-        <table id="customers">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Image</th>
-              <th>Category Name</th>
-              <th>Date</th>
-              <th>Action</th>
+        {
+          imgLoading ? <div className="set-loading-img" ><img src={imgLoad} alt="" /></div> :
+            <table id="customers">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Image</th>
+                  <th>Category Name</th>
+                  <th>Date</th>
+                  <th>Action</th>
 
-            </tr>
-          </thead>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  post?.results?.map((item, i) => {
+                    return (
+                      <tr key={i}>
+                        <td className='post-name'>{item.title}</td>
+                        <td className='port-img'>
+                          <div className="inner-img">
+                            <img src={item.image} alt="" />
+                          </div>
+                        </td>
+                        <td>{item.category.name}</td>
+                        <td>{format(item.date)}</td>
+                        <td className='cate-action'>
+                          <EditIcon className='edit' onClick={() => navigate(`edit-posts/${item.id}`)} />
+                          <DeleteIcon className="delete" onClick={() => deletePost(item.id)} />
+                        </td>
+                      </tr>
 
-          <tbody>
-            {
-              post?.results?.map((item, i) => {
-                return (
-                  <tr key={i}>
-                    <td className='post-name'>{item.title}</td>
-                    <td className='port-img'>
-                      <div className="inner-img">
-                        <img src={item.image} alt="" />
-                      </div>
-                    </td>
-                    <td>{item.category.name}</td>
-                    <td>{format(item.date)}</td>
-                    <td className='cate-action'>
-                      <EditIcon className='edit' onClick={() => navigate(`edit-posts/${item.id}`)} />
-                      <DeleteIcon className="delete" onClick={() => deletePost(item.id)} />
-                    </td>
-                  </tr>
-                )
-              })
-            }
-          </tbody>
+                    )
+                  })
+                }
+              </tbody>
 
-        </table>
+
+
+
+
+            </table>
+        }
+
 
         {
           post?.results?.length === 0 ? <div> Post Not Found </div> : null

@@ -27,7 +27,7 @@ const PostCreate = () => {
   const [category, setCategory] = useState([]);
 
   const loadCategory = async () => {
-    const resultCate = await (await axiosAuth().get('http://localhost:5000/v1/categories')).data;
+    const resultCate = await (await axiosAuth().get(API_URL + 'v1/categories')).data;
     setCategory(resultCate);
   }
 

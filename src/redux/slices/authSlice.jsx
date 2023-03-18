@@ -38,10 +38,15 @@ const authSlice = createSlice({
   extraReducers: {
     [login.fulfilled]: (state, action) => {
       state.isLoggedIn = true;
+      state.isLoading = false;
       state.user = action.payload.user;
+    },
+    [login.pending]: (state, action) => {
+      state.isLoading = true
     },
     [login.rejected]: (state, action) => {
       state.isLoggedIn = false;
+      state.isLoading = false;
       state.user = null;
     },
     [logout.fulfilled]: (state, action) => {
