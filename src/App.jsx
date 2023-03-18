@@ -21,6 +21,7 @@ import ProtectedRoute from "./protected/ProcteRoute";
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Main from "./components/main/main";
+import Error from "./components/error/Error";
 
 
 
@@ -62,14 +63,14 @@ function App() {
                 <Route path="create-categories" element={<CreateCategory />} />
                 <Route path="edit-categories/:id" element={<EditCategory />} />
               </Route>
-              <Route path="logout">
-
-              </Route>
+              <Route path="/*" element={<Error />}/>
+              
             </Route>
 
 
           </Routes>
-       
+          
+                  
 
 
       </BrowserRouter>

@@ -19,8 +19,8 @@ const Navbar = () => {
     <div className="navbarmain">     
         <div className="inner">
         <div className="top">
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <span className="logo">SPORTS WEBSITE</span>
+          <Link style={{ textDecoration: "none" }}>
+            <span className="logo">SPORTS</span>
           </Link>
         </div>
           <div className="items">

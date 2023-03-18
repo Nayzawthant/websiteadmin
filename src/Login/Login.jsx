@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import "bootstrap/dist/css/bootstrap.min.css";
-import imgLoad from '../../../public/1488.gif'
+import imgLoad from '../../public/1488.gif'
 import * as Yup from "yup";
 import './login.scss'
 import { login } from "../redux/slices/authSlice";
@@ -46,7 +46,7 @@ const Login = () => {
             <input type='text' class='input-field' placeholder="Enter Email" onChange={e => setEmail(e.target.value)} />
             <input type='password' class='input-field' placeholder='Enter Password' onChange={e => setPassword(e.target.value)} />
             {
-              isLoading? <button class='submit-btn'><img src={imgLoad} alt=""  /></button> :
+              isLoading? <button class='submit-btn'>Loading...</button> :
               <button type='submit' class='submit-btn'>Login</button>
             }
             {message && (

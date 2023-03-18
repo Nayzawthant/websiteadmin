@@ -5,15 +5,17 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { textTransform } from '@mui/system';
 import { API_URL } from '../../config/constant';
-
+import imgLoad from '../../../public/1488.gif'
 
 const CategoryTable = () => {
   const navigate = useNavigate();
   const [cate, setCate] = useState([]);
   const [page, setPage] = useState(1);
+  const [imgLoading, setImgLoading] = useState(false);
   const [querry, setQuerry] = useState('')
 
   const loadCategory = async () => {
+    setImgLoading(true)
     let param = `v1/categories?sortBy=_id:desc&page=${page}&limit=8`
 
     if (querry) {
@@ -22,6 +24,7 @@ const CategoryTable = () => {
     const resultCate = await (await axiosAuth().get(API_URL + param)).data;
     setPage(resultCate?.page);
     setCate(resultCate);
+    setImgLoading(false)
   };
 
   const deleteCate = async (id) => {
@@ -68,23 +71,25 @@ const CategoryTable = () => {
 
             </tr>
           </thead>
-
-          <tbody>
-            {
-              cate?.results?.map((item, i) => {
-                return (
-                  <tr key={i}>
-                    <td >{item.name}</td>
-                    <td>{item.numberOfPosts}</td>
-                    <td className='cate-action'>
-                      <EditIcon className='edit' onClick={() => navigate(`edit-categories/${item.id}`)} />
-                      <DeleteIcon className="delete" onClick={() => deleteCate(item.id)} />
-                    </td>
-                  </tr>
-                )
-              })
-            }
-          </tbody>
+          {
+            imgLoading ? <div><img src={imgLoad} alt="" /></div> :
+              <tbody>
+                {
+                  cate?.results?.map((item, i) => {
+                    return (
+                      <tr key={i}>
+                        <td >{item.name}</td>
+                        <td>{item.numberOfPosts}</td>
+                        <td className='cate-action'>
+                          <EditIcon className='edit' onClick={() => navigate(`edit-categories/${item.id}`)} />
+                          <DeleteIcon className="delete" onClick={() => deleteCate(item.id)} />
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+          }
 
         </table>
 

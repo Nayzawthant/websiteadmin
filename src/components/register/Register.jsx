@@ -68,8 +68,6 @@ const Register = () => {
       {
         loading ? <div className="loading"><img src={img} alt="" className="loading-img" /></div> :
 
-
-
           <div className='main-register'>
             <div className="container">
               <form onSubmit={e => onSubmit(e)} >

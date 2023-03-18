@@ -8,23 +8,23 @@ import { useEffect, useState } from "react";
 import { axiosAuth, axiosAuthUpload } from "../../config/axios";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import { API_URL } from "../../config/constant";
+import imgLoad from '../../../public/1488.gif'
 
 const Home = () => {
   const [userAll, setUserAll] = useState('');
   const [postAll, setPostAll] = useState('');
   const [comment, setComment] = useState('');
+  const [imgLoading, setImgLoading] = useState(false);
   const [categoryAll, setCategoryAll] = useState('');
 
   const loadCategory = async () => {
     const resultCategory = await (await axiosAuth().get(API_URL + 'v1/categories')).data;
     setCategoryAll(resultCategory);
-
   };
 
   const loadComment = async () => {
     const resultComment = await (await axiosAuth().get(API_URL + 'v1/comments')).data;
     setComment(resultComment);
-
   };
 
   const loadUser = async () => {
@@ -48,7 +48,8 @@ const Home = () => {
     <div>
       <div className="home">
         <div className="homeContainer">
-          <div className="main-dashboard">
+
+            <div className="main-dashboard">
             <div className="dashboard-users">
               <div className="dashboard">
                 <span className="dashboard-span">Users</span>
@@ -77,7 +78,8 @@ const Home = () => {
               </div>
               <div className="dashboard-total">{comment.totalResults}</div>
             </div>
-          </div>
+            </div>
+        
         </div>
       </div>
     </div>

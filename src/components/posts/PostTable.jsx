@@ -28,7 +28,7 @@ const PostTable = () => {
     const resultPost = await (await axiosAuth().get(API_URL + param)).data
     setPage(resultPost?.page)
     setPost(resultPost);
-    setImgLoading(true)
+    setImgLoading(false)
   }
 
   console.log(post)
@@ -67,19 +67,20 @@ const PostTable = () => {
         <button onClick={() => navigate('create-posts')}>Add Post</button>
       </div>
       <div className='thead'>
-        {
-          imgLoading ? <div className="set-loading-img" ><img src={imgLoad} alt="" /></div> :
-            <table id="customers">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Image</th>
-                  <th>Category Name</th>
-                  <th>Date</th>
-                  <th>Action</th>
 
-                </tr>
-              </thead>
+        <table id="customers">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Image</th>
+              <th>Category Name</th>
+              <th>Date</th>
+              <th>Action</th>
+
+            </tr>
+          </thead>
+          {
+            imgLoading ? <div><img src={imgLoad} alt="" /></div> :
               <tbody>
                 {
                   post?.results?.map((item, i) => {
@@ -103,13 +104,14 @@ const PostTable = () => {
                   })
                 }
               </tbody>
+          }
 
 
 
 
 
-            </table>
-        }
+        </table>
+
 
 
         {

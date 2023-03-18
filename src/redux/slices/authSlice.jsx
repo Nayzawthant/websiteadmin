@@ -42,7 +42,7 @@ const authSlice = createSlice({
       state.user = action.payload.user;
     },
     [login.pending]: (state, action) => {
-      state.isLoading = true
+      state.isLoading = true;
     },
     [login.rejected]: (state, action) => {
       state.isLoggedIn = false;

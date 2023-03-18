@@ -5,15 +5,17 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { textTransform } from '@mui/system';
 import { API_URL } from '../../config/constant';
-
+import imgLoad from '../../../public/1488.gif'
 
 const CommentTable = () => {
   const navigate = useNavigate();
   const [comment, setComment] = useState([]);
   const [page, setPage] = useState(1);
-  const [querry, setQuerry] = useState('')
+  const [querry, setQuerry] = useState('');
+  const [imgLoading, setImgLoading] = useState(false);
 
   const loadComment = async () => {
+    setImgLoading(true);
     let param = `v1/comments?sortBy=_id:desc&page=${page}&limit=8`
 
     if (querry) {
@@ -22,6 +24,7 @@ const CommentTable = () => {
     const resultCom = await (await axiosAuth().get(API_URL + param)).data;
     setPage(resultCom?.page);
     setComment(resultCom);
+    setImgLoading(false)
   };
 
   const deleteCom = async (id) => {
@@ -64,7 +67,8 @@ const CommentTable = () => {
 
             </tr>
           </thead>
-
+          {
+            imgLoading ? <div><img src={imgLoad} alt="" /></div> :
           <tbody>
             {
               comment?.results?.map((item, i) => {
@@ -80,6 +84,7 @@ const CommentTable = () => {
               })
             }
           </tbody>
+        }
 
         </table>
 

@@ -4,16 +4,19 @@ import { axiosAuth } from '../../config/axios';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { API_URL } from '../../config/constant';
+import imgLoad from '../../../public/1488.gif'
 
 const UserTable = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [page, setPage] = useState(1);
   const [querry, setQuerry] = useState('');
+  const [imgLoading, setImgLoading] = useState(false)
 
   console.log(user);
 
   const loadUsers = async () => {
+    setImgLoading(true)
     let param = `v1/users?sortBy=_id:desc&page=${page}&limit=8`
 
     if (querry) {
@@ -22,6 +25,7 @@ const UserTable = () => {
     const resultUser = await (await axiosAuth().get(API_URL + param)).data;
     setPage(resultUser?.page)
     setUser(resultUser);
+    setImgLoading(false);
   }
 
   const handleNext = () => {
@@ -63,40 +67,43 @@ const UserTable = () => {
       <div className='thead'>
 
 
-      <table id="customers">
+        <table id="customers">
           <thead>
-          <tr>
-            <th>Name</th>
-            <th>Image</th>
-            <th>Email</th>
-            <th>Number of Post</th>
-            <th>Action</th>
+            <tr>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Email</th>
+              <th>Number of Post</th>
+              <th>Action</th>
 
-          </tr>
+            </tr>
           </thead>
-         
-          <tbody>
           {
-            user?.results?.map((item, i) => {
-              return(
-                <tr key={i}>
-                <td className='post-name'>{item.name}</td>
-                <td className='port-img'>
-                <div className="inner-img">
-                      <img src={item.image} alt="" />
-                    </div>
-                </td>
-                <td>{item.email}</td>
-                <td>{item.numberOfPosts}</td>
-                <td className='cate-action'>
-                    <EditIcon className='edit' onClick={() => navigate(`edit-users/${item.id}`)} />
-                    <DeleteIcon className="delete" onClick={() => deleteUser(item.id)} />
-                </td>
-              </tr>
-              )
-            })
+            imgLoading ? <div><img src={imgLoad} alt="" /></div> :
+
+              <tbody>
+                {
+                  user?.results?.map((item, i) => {
+                    return (
+                      <tr key={i}>
+                        <td className='post-name'>{item.name}</td>
+                        <td className='port-img'>
+                          <div className="inner-img">
+                            <img src={item.image} alt="" />
+                          </div>
+                        </td>
+                        <td>{item.email}</td>
+                        <td>{item.numberOfPosts}</td>
+                        <td className='cate-action'>
+                          <EditIcon className='edit' onClick={() => navigate(`edit-users/${item.id}`)} />
+                          <DeleteIcon className="delete" onClick={() => deleteUser(item.id)} />
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
           }
-          </tbody>
 
         </table>
 
