@@ -15,6 +15,8 @@ const Navbar = () => {
   let name = profile?.user?.name
   let profileImage = profile?.user?.image
 
+  console.log('profile', profile);
+
   return (
     <div className="navbarmain">     
         <div className="inner">

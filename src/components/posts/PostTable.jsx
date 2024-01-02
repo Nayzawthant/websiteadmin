@@ -105,15 +105,7 @@ const PostTable = () => {
                 }
               </tbody>
           }
-
-
-
-
-
         </table>
-
-
-
         {
           post?.results?.length === 0 ? <div> Post Not Found </div> : null
         }
